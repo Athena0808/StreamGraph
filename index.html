@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stream Graph</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <style>
+    #app{
+      text-align: center;
+    }
+    #text {
+      position: absolute;
+      background: white;
+      border: none;
+      padding: 5px;
+      font-size: 14px;
+      top: 400px;
+      left: 400px;
+    }
+    #header{
+      display: center;
+      text-align: center;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <h1>Streamgraph</h1>
+    <h4>the evolution of baby name frequencies in the US between 1880 and 2015:</h4>
+  </div>
+  <div id="app">
+    <svg id="streamGraph" :width="svgWidth" :height="svgHeight">
+    <!-- 将图注设为svg内部元素，便于其与graph一起移动-->
+      <text v-if="tooltipVisible" id="tooltip" x="tooltipx" y="tooltipy" font-size="14" fill="black">
+        {{ tooltipContent }}
+      </text>
+    </svg>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
